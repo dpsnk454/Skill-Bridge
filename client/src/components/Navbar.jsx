@@ -1,11 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import { assets } from "../assets/assets"
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react"
 import { Link } from "react-router-dom"
+import { AppContext } from "../context/AppContext"
 
 const Navbar = () => {
     const { openSignIn } = useClerk()
     const { user } = useUser()
+
+    // const navigate = useNavigate()
+
+    const {setShowRecruiterLogin} = useContext(AppContext)
 
     return (
         <div className='shadow py-3 bg-white'>
@@ -34,7 +39,11 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className='flex gap-4 max-sm:text-xs items-center'>
-                        <Link  className='text-gray-600 cursor-pointer font-medium hover:text-blue-700 transition'>Recruiter Login</Link>
+                        {/* <Link  className='text-gray-600 cursor-pointer font-medium hover:text-blue-700 transition'>Recruiter Login</Link> */}
+                        <button 
+                            onClick={() => setShowRecruiterLogin(true)}
+                            className="className='text-gray-600 cursor-pointer font-medium hover:text-blue-700 transition"
+                            >Recruiter Login</button>
                         <button 
                           onClick={e => openSignIn()} 
                           className='bg-blue-600 text-white px-6 sm:px-9 py-2 rounded-full font-bold hover:bg-blue-700 shadow transition cursor-pointer'

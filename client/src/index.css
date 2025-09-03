@@ -5,3 +5,56 @@
 *{
     font-family: Outfit;
 }
+
+@layer base{
+    html{
+        scroll-behavior: smooth;
+    }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.rich-text {
+  /* This ensures text flows naturally */
+  line-height: 1.6;
+  color: #333;
+}
+
+.rich-text h2,
+.rich-text h3,
+.rich-text h4 {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.rich-text p {
+  margin-bottom: 1rem;
+}
+
+.rich-text ul,.rich-text ol{
+  /* Provides spacing for lists */
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.rich-text ul li,.rich-text ol li{
+  /* Adjusts the spacing for list items */
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure ordered lists display numbers */
+.rich-text ol {
+  list-style-type: decimal;
+}
